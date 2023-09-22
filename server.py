@@ -4,7 +4,9 @@ import socket
 def server_program():
     # get the hostname
     port = 1236
-    host = socket.gethostname()
+
+    #bind to all network interfaces on host ip
+    host = "0.0.0.0"
 
     server_socket = socket.socket()  # get instance
     # look closely. The bind() function takes tuple as argument

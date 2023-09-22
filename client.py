@@ -4,10 +4,12 @@ import socket
 def client_program():
     # get the hostname
     port = 1236
-    host = socket.gethostname()
+
+    #ipv4 of the host machine
+    host = "192.168.10.86"
 
     client_socket = socket.socket()
-    client_socket.connect((host, 1236))  # connect to the server
+    client_socket.connect((host, port))  # connect to the server
 
     message = input(" -> ")  # take input
 
