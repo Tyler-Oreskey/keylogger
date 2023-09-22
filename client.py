@@ -3,7 +3,7 @@ import socket
  
 s = socket.socket()        
  
-port = 12346
+port = 1236
  
 # connect to the server on local computer
 s.connect(('127.0.0.1', port))
