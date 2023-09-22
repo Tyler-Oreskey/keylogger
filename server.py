@@ -4,7 +4,7 @@ import socket
 def server_program():
     server_socket = socket.socket()  # get instance
     # look closely. The bind() function takes tuple as argument
-    server_socket.bind(('192.168.10.86', 1236))  # bind host address and port together
+    server_socket.bind(("127.0.0.1", 1236))  # bind host address and port together
 
     # configure how many clients the server can listen to simultaneously
     server_socket.listen(5)

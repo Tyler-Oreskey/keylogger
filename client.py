@@ -3,7 +3,7 @@ import socket
 
 def client_program():
     client_socket = socket.socket()
-    client_socket.connect(('192.168.10.86', 1236))  # connect to the server
+    client_socket.connect(("127.0.0.1", 1236))  # connect to the server
 
     message = input(" -> ")  # take input
 
