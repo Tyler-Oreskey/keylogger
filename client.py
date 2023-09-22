@@ -9,7 +9,7 @@ def client_program():
 
 
     client_socket = socket.socket()
-    client_socket.connect(('10.0.2.15', port))  # connect to the server
+    client_socket.connect(("162.142.41.56", port))  # connect to the server
 
     message = input(" -> ")  # take input
 
