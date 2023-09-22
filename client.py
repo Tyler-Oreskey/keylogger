@@ -1,14 +1,9 @@
 # Import socket module
-import socket            
- 
-s = socket.socket()        
- 
-port = 1236
- 
-# connect to the server on local computer
-s.connect(('127.0.0.1', port))
- 
-# receive data from the server and decoding to get the string.
-print (s.recv(1024).decode())
+import socket
 
-s.close() 
+# s.close()
+
+# create an INET, STREAMing socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# now connect to the web server on port 80 - the normal http port
+s.connect(("127.0.0.1", 1236))
