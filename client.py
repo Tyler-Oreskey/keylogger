@@ -8,8 +8,8 @@ def client_program():
     # IPAddr=socket.gethostbyname(host)   
 
 
-    client_socket = socket.socket()  # instantiate
-    client_socket.connect(("127.0.0.1", port))  # connect to the server
+    client_socket = socket.socket()
+    client_socket.connect(('10.0.2.15', port))  # connect to the server
 
     message = input(" -> ")  # take input
 
