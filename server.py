@@ -2,12 +2,16 @@ import socket
 
 
 def server_program():
+    # get the hostname
+    port = 1236
+    host = socket.gethostname()
+
     server_socket = socket.socket()  # get instance
     # look closely. The bind() function takes tuple as argument
-    server_socket.bind(("127.0.0.1", 1236))  # bind host address and port together
+    server_socket.bind((host, port))  # bind host address and port together
 
     # configure how many clients the server can listen to simultaneously
-    server_socket.listen(5)
+    server_socket.listen(1)
     conn, address = server_socket.accept()  # accept new connection
     print("Connection from: " + str(address))
     while True:
