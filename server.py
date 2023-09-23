@@ -1,6 +1,5 @@
 import socket
 
-
 def server_program():
     # get the hostname
     port = 1236
@@ -15,19 +14,16 @@ def server_program():
     # configure how many clients the server can listen to simultaneously
     server_socket.listen(1)
     conn, address = server_socket.accept()  # accept new connection
+
     print("Connection from: " + str(address))
-    while True:
-        # receive data stream. it won't accept data packet greater than 1024 bytes
-        data = conn.recv(1024).decode()
-        if not data:
-            # if data is not received break
-            break
-        print("from connected user: " + str(data))
-        data = input(' -> ')
-        conn.send(data.encode())  # send data to the client
+    
+    message = input(" -> ")  # take input
+
+    while message.lower().strip() != 'bye':
+        conn.send(message.encode())  # send message
+        message = input(" -> ")  # again take input
 
     conn.close()  # close the connection
-
 
 if __name__ == '__main__':
     server_program()

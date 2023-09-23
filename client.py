@@ -1,6 +1,5 @@
 import socket
 
-
 def client_program():
     # get the hostname
     port = 1236
@@ -11,18 +10,15 @@ def client_program():
     client_socket = socket.socket()
     client_socket.connect((host, port))  # connect to the server
 
-    message = input(" -> ")  # take input
-
-    while message.lower().strip() != 'bye':
-        client_socket.send(message.encode())  # send message
-        data = client_socket.recv(1024).decode()  # receive response
-
-        print('Received from server: ' + data)  # show in terminal
-
-        message = input(" -> ")  # again take input
+    while True:
+        # receive data stream. it won't accept data packet greater than 1024 bytes
+        data = client_socket.recv(1024).decode()
+        if not data:
+            # if data is not received break
+            break
+        print("from server: " + str(data))
 
     client_socket.close()  # close the connection
-
 
 if __name__ == '__main__':
     client_program()
