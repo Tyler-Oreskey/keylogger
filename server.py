@@ -29,7 +29,6 @@
 #     server_program()
 
 
-import socket
 from Keylogger import Keylogger
 
 def server_program():
